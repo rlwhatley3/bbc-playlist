@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+
+<table class="text-center">
+	<tr>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>Image</th>
+	</tr>
+
+	<tr *ngFor="let track of playList">
+		<td>{{track.title}}</td>
+		<td>{{track.artist}}</td>
+		<td><img [src]="track.image"></td>
+	</tr>
+	
+</table>
