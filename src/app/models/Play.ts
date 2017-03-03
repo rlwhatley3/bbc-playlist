@@ -5,7 +5,8 @@ export interface Track {
 	image: string,
 	playlist: string,
 	artist_id: string,
-	status: string
+	status: string,
+	is_selected: boolean
 }
 
 export interface Play {
