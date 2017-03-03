@@ -4,6 +4,24 @@
 	cursor: pointer;
 }
 
+.big {
+	font-size: larger;
+	font-weight: bold;
+}
+
+.row-text {
+	margin-top: 14%;
+}
+
+.search-input {
+	max-width: 200px;
+	/*box-shadow: -2px -2px -2px -2px rgba(0,0,0,0.2);*/
+	-webkit-border-radius: .6em;
+	-moz-border-radius: .6em;
+	border-radius: .6em;
+	border: 1px solid black;
+}
+
 .card-table-container {
 	height: 100%;
 	width: 100%;
@@ -12,20 +30,22 @@
 }
 
 .card-table {
-	max-height: 91vh;
-	overflow-x: auto;
+	max-height: 89vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	direction: rtl;
 	margin-left: -15px;
 }
 
 .card {
 	z-index: 100;
-	margin: 20px;
-	padding: 20px;
-	padding-right: 20px;
-	padding-left: 20px;
+	margin: 10px;
+	padding: 10px;
 	box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
 	transition: .3s;
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	border-radius: .3em;
 }
 
 .card:hover {
@@ -36,3 +56,32 @@
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 	background-color: #f4ffff;
 }
+
+.card-static-container {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.card-static {
+	z-index: 99;
+	max-height: 87vh;
+	max-width: 90%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	direction: ltr;
+	margin-left: -45px;
+	margin: 10px;
+	padding: 10px;
+	box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: .3s;
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	border-radius: .3em;
+}
+
+.card-static-face {
+	z-index: 98;
+}
+

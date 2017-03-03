@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
-import { FormsModule } from '@angular/forms'
-import { HttpModule } from '@angular/http'
+import { BrowserModule } 			from '@angular/platform-browser'
+import { NgModule } 				from '@angular/core'
+import { FormsModule } 			from '@angular/forms'
+import { HttpModule } 				from '@angular/http'
 
-import { AppComponent } from '../views/app.component'
+import { AppComponent }		 	from '../views/app.component'
 
-import { PlaylistSvc }			from '../services/playlist/playlist.service'
+import { PlaylistSvc }				from '../services/playlist/playlist.service'
+import { WikiSvc }					from '../services/wiki/wiki.service'
 
 @NgModule({
 	declarations: [
@@ -16,7 +17,7 @@ import { PlaylistSvc }			from '../services/playlist/playlist.service'
 		FormsModule,
 		HttpModule
 	],
-	providers: [PlaylistSvc],
+	providers: [PlaylistSvc, WikiSvc],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
