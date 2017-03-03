@@ -16,7 +16,7 @@ export class PlaylistSvc {
 	constructor(private http: Http) {
 		// gross hackey work around for hitting public api's w/o hosting anything myself
 		this.play_list_url = 'https://cors-anywhere.herokuapp.com/http://www.bbc.co.uk/radio1/playlist.json'
-		this.hackey_headers = new Headers({'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authoriziation', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'})
+		this.hackey_headers = new Headers({'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authoriziation', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'x-requested-with': '*'})
 	}
 
 	getPlaylist(): Observable<any> {

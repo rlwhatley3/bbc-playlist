@@ -24,7 +24,7 @@ export class AppComponent  implements OnInit {
 	public searchableList: Array<Observable<Track>>
 	public selected: Observable<Track>
 
-	private sortFields: Object = { title: 'asc', artist: 'asc' }
+	private sort_fields: Object = { title: 'asc', artist: 'asc' }
 
 	constructor(private playlistSvc: PlaylistSvc, private wikiSvc: WikiSvc) {}
 
@@ -33,20 +33,19 @@ export class AppComponent  implements OnInit {
 
 		if(track.is_selected == true) {
 			this.selected = track
+			this.getWiki(track['artist'])
 		} else {
 			this.selected = null
 		}
 		_.each(this.searchableList, (t) => {if(t != track) { t['is_selected'] = false } } )
-		this.getWiki(track['artist'])
 		return
 	}
 
-	getWiki(artistName) {
+	getWiki(artistName: string) {
 		this.wikiSvc.getArtist(artistName)
 			.subscribe(
 				res => {
 					this.selected['snippet'] = res
-					// this.selected['snippet'] = res.snippet
 				},
 				err => this.error = err
 			)
@@ -54,14 +53,14 @@ export class AppComponent  implements OnInit {
 
 	// normally sort and search would be done through api calls, but since you asked for non-ready made solutions
 	// I thought this method might be pertinent
-	sortBy(att) {
-		if(this.sortFields[att] == 'asc') {
-			this.sortFields[att] = 'desc'
+	sortBy(att: string) {
+		if(this.sort_fields[att] == 'asc') {
+			this.sort_fields[att] = 'desc'
 		} else {
-			this.sortFields[att] = 'asc'
+			this.sort_fields[att] = 'asc'
 		}
 
-		this.searchableList = _.orderBy(this.searchableList, att, this.sortFields[att])
+		this.searchableList = _.orderBy(this.searchableList, att, this.sort_fields[att])
 		return
 	}
 

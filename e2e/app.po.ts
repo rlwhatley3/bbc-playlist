@@ -1,11 +1,25 @@
-import { browser, element, by } from 'protractor';
+import { browser, element, by, $, $$ } from 'protractor';
 
 export class TestAppPage {
-  navigateTo() {
-    return browser.get('/');
+
+  navigateTo(url: string) {
+    return browser.get(url);
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+	return $('app-root h1').getText()
   }
+
+  getTableHeaderFields() {
+  	return $$('.card-table-header-field')
+  }
+
+  getCardTable() {
+  	return $$('.card-table')
+  }
+
+  getTracks() {
+  	return this.getCardTable().$$('.card')
+  }
+
 }

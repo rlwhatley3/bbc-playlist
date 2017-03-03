@@ -1,16 +1,14 @@
+<top-nav (termUpdated)="search($event)"></top-nav>
 <div class="container">
-	<h1>{{title}}
-		<input class="search-input pull-right" (keyup)="search($event.target.value.toLowerCase())">
-	</h1>
 
-	<div class="row">
-		<div class="col-xs-7">
-			<div class="col-xs-5 text-center clickable" (click)="sortBy('title')">Title</div>
-			<div class="col-xs-5 text-center clickable" (click)="sortBy('artist')">Artist</div>
+	<div class="row" >
+		<div class="col-xs-7 card-table-header">
+			<div class="col-xs-5 text-center card-table-header-field m-l-25" (click)="sortBy('title')">Title</div>
+			<div class="col-xs-5 text-center card-table-header-field" style="margin-left: -25px" (click)="sortBy('artist')">Artist</div>
 		</div>
 	</div>
 
-	<div class="col-xs-7">
+	<div class="col-xs-7" *ngIf="searchableList && searchableList.length > 0">
 		<div class="card-table-container">
 			<div class="card-table">
 				<div  class="card row" *ngFor="let track of searchableList" (click)="setSelected(track)" [ngClass]="{ 'selected': track.is_selected }">
@@ -24,7 +22,13 @@
 		</div>
 	</div>
 
-
+	<div class="col-xs-7" *ngIf="searchableList && searchableList.length < 1">
+		<div class="alert alert-info m-t-25 text-center">
+			<span class="text-info text-center">
+				No titles or artists matching search criteria
+			</span>
+		</div>
+	</div>
 
 	<div class="col-xs-5 text-center" *ngIf="selected">
 		<div class="card-static-container">
@@ -34,26 +38,4 @@
 		</div>
 	</div>
 
-<!-- 	<div class="col-xs-4 text-center" *ngIf="selected">
-		<div class="card-table-container">
-			<div class="card-table">
-				<div class="card-static row" *ngIf="selected.snippet">
-					<div [innerHtml]="selected.snippet"></div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!-- <div class="card col-xs-offset-1 col-xs-4 text-center" *ngIf="selected">
-		<div class="row">
-			<img style="border: 5px solid black; max-width: 350px; max-height: 350px" [src]="selected.image">
-		</div>
-		<div class="row">
-			<span>{{selected.title | uppercase}}</span><br>
-			<span>{{selected.artist | uppercase}}</span>
-		</div>
-
-		<div class="row">
-			<div *ngIf="selected.snippet" class="col-xs-10 col-xs-offset-1" [innerHtml]="selected.snippet"></div>
-		</div>
-	</div> -->
 </div>
