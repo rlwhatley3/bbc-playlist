@@ -22,4 +22,29 @@ export class TestAppPage {
   	return this.getCardTable().$$('.card')
   }
 
+  getTitleHeader() {
+  	return $('#title-header')
+  }
+
+  getTitles() {
+  	return $$('#title')
+  	// return this.getTracks().$$('#title')
+  }
+
+  getArtistHeader() {
+  	return $('#artist-header')
+  }
+
+  getArtists() {
+  	return $$('#artist')
+  }
+
+  getSideBar() {
+  	return $('#sidebar')
+  }
+
+  getSearchBar() {
+  	return $('#search-bar')
+  }
+
 }

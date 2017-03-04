@@ -3,8 +3,8 @@
 
 	<div class="row" >
 		<div class="col-xs-7 card-table-header">
-			<div class="col-xs-5 text-center card-table-header-field m-l-25" (click)="sortBy('title')">Title</div>
-			<div class="col-xs-5 text-center card-table-header-field" style="margin-left: -25px" (click)="sortBy('artist')">Artist</div>
+			<div class="col-xs-5 text-center card-table-header-field m-l-25" id="title-header" (click)="sortBy('title')">Title</div>
+			<div class="col-xs-5 text-center card-table-header-field"  id="artist-header" style="margin-left: -25px" (click)="sortBy('artist')">Artist</div>
 		</div>
 	</div>
 
@@ -13,9 +13,9 @@
 			<div class="card-table">
 				<div  class="card row" *ngFor="let track of searchableList" (click)="setSelected(track)" [ngClass]="{ 'selected': track.is_selected }">
 					<div class="col-md-5 col-sm-12 text-center">
-						<p class="big row-text">{{track.title}}</p>
+						<p class="big row-text" id="title">{{track.title}}</p>
 					</div>
-					<div class="col-md-5 col-sm-12 text-center"><p class="big row-text">{{track.artist}}</p></div>
+					<div class="col-md-5 col-sm-12 text-center"><p class="big row-text" id="artist">{{track.artist}}</p></div>
 					<div class="col-md-2 col-sm-12 text-center"><img [src]="track.image" style="width: 100px; height: 100px; border: 1px solid black;"></div>
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	<div class="col-xs-5 text-center" *ngIf="selected">
+	<div class="col-xs-5 text-center" *ngIf="selected" id="sidebar">
 		<div class="card-static-container">
 			<div class="card-static">
 				<div class="card-static-face" [innerHtml]="selected.snippet"></div>
